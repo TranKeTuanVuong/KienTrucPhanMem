@@ -17,17 +17,23 @@ public class Main {
                 nhanVien.setRole(new DoiTruong());
                 break;
             case 2:
-                nhanVien.getRole(new NhanVienVP());
+                nhanVien.setRole(new NhanVienVP()); // Sửa getRole() thành setRole()
                 break;
             case 3:
-                nhanVien.getRole(new KeToan());
+                nhanVien.setRole(new KeToan()); // Sửa getRole() thành setRole()
                 break;
             default:
                 System.out.println("Chức vụ không hợp lệ!");
                 return;
         }
 
-        nhanVien.showDuties();
+
+        if (nhanVien.getRole() == null) {
+            System.out.println("Chưa có chức vụ, không thể thực hiện nhiệm vụ!");
+        } else {
+            nhanVien.showDuties();
+        }
+
 
 
     }
